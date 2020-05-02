@@ -1,0 +1,43 @@
+#include "/home/jan/.config/xcolors/monokai.colors"
+
+! DPI/Font
+
+Xft.dpi: 117
+Xft.autohint: 0
+Xft.antialias: 1
+Xft.hinting: 1
+Xft.hintstyle: hintslight
+Xft.rgba: rgb
+Xft.lcdfilter: lcddefault
+
+
+! Colors
+
+*.foreground:    FOREGROUND
+*.background:    BACKGROUND
+*.cursorColor:   CURSOR
+
+*.color0:        COLOR0
+*.color1:        COLOR1
+*.color2:        COLOR2
+*.color3:        COLOR3
+*.color4:        COLOR4
+*.color5:        COLOR5
+*.color6:        COLOR6
+*.color7:        COLOR7
+*.color8:        COLOR8
+*.color9:        COLOR9
+*.color10:       COLOR10
+*.color11:       COLOR11
+*.color12:       COLOR12
+*.color13:       COLOR13
+*.color14:       COLOR14
+*.color15:       COLOR15
+
+
+! Rofi colors
+
+rofi.color-window: BACKGROUND, COLOR8, COLOR8
+rofi.color-normal: BACKGROUND, FOREGROUND, BACKGROUND, BACKGROUND, COLOR11
+rofi.color-active: BACKGROUND, COLOR1, BACKGROUND, BACKGROUND, COLOR11
+rofi.color-urgent: BACKGROUND, COLOR1, BACKGROUND, BACKGROUND, COLOR11
