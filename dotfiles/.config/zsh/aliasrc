@@ -1,0 +1,65 @@
+# Replace vim with neovim
+alias vim="nvim" vimdiff="nvim -d"
+
+# Replace ls with exa
+alias ls="exa --group-directories-first --git"	
+
+# Verbosity(-v), prompt(-i/-I), creating non-existent parent (-p)
+alias \
+	cp="cp -iv" \
+	mv="mv -iv" \
+	rm="rm -Iv" \
+	mkd="mkdir -pv"
+
+# Colorize commands
+alias \
+	grep="grep --color=auto" \
+	diff="diff --color=auto"
+
+# Commonly used programs
+abbrev-alias \
+	c="clear"
+	f="$FILE" \
+	e="$EDITOR" \
+	v="$EDITOR" \
+	r="$READER" \
+	z="zathura" \
+	p="sudo pacman" \
+	ka="killall"
+
+# Globals
+abbrev-alias -g G="| grep"
+
+# Movement
+abbrev-alias \
+	l="ls -l" \
+	la="ls -la" \
+	lt="ls -lT" \
+	lta="ls -lTa" \
+	...="cd ../.." \
+	....="cd ../../.." \
+	.....="cd ../../../.."
+
+# Git
+abbrev-alias \
+	g="git" \
+	gs="git status" \
+	gd="git diff --color" \
+	ga="git add -A" \
+	gc="git commit" \
+	gco="git checkout" \
+	gb="git branch" \
+	gsb="git show-branch" \
+	gg="git grep" \
+	gl="git log --graph --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %C(dim green)(%cr) %C(dim cyan)<%an>%Creset' --abbrev-commit" \
+	glg="git log --graph"
+	gk="gitk --all" \
+	gf="git fetch" \
+	gpl="git pull" \
+	gps="git push" \
+	gr="git rebase" \
+	gri="git rebase --interactive" \
+	gcp="git cherry-pick" \
+	grs="git reset" \
+	grv="git revert" \
+	grm="git rm"
