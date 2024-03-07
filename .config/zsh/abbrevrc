@@ -1,0 +1,66 @@
+#!/bin/zsh
+
+# Global
+abbrev-alias -g \
+	A="| awk" \
+	G="| grep" \
+	L="| less" \
+	S="| sed" \
+	W="| wc" \
+
+# Commonly used programs
+abbrev-alias \
+	c="clear" \
+	e="$VISUAL" \
+	v="$VISUAL" \
+	f="$FILE" \
+	z="$READER" \
+	sf="sfeed_update ~/.config/sfeed/sfeedrc && sfeed_curses ~/.local/share/sfeed/feeds/*" \
+	scs="/usr/lib/xdg-desktop-portal -r & /usr/lib/xdg-desktop-portal-wlr" \
+
+# Listing
+abbrev-alias \
+	l="ls -l" \
+	la="ls -la" \
+	lt="ls -lT" \
+	lta="ls -lTa" \
+
+# Movement
+abbrev-alias \
+	...="cd ../.." \
+	....="cd ../../.." \
+	.....="cd ../../../.." \
+	cf="cd $XDG_CONFIG_HOME" \
+	d="cd $XDG_DATA_HOME" \
+	s="cd $SCRIPTS" \
+	r="cd ~/repositories" \
+
+# Git
+abbrev-alias \
+	g="git" \
+	gs="git status" \
+	gd="git diff --color" \
+	ga="git add -A" \
+	gc="git commit" \
+	gca="git commit --amend" \
+	gco="git checkout" \
+	gst="git stash" \
+	gsp="git stash pop" \
+	gb="git branch" \
+	gsb="git show-branch" \
+	gg="git grep" \
+	gl="git log --graph --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %C(dim green)(%cr) %C(dim cyan)<%an>%Creset' --abbrev-commit" \
+	glg="git log --graph"
+	gk="gitk --all" \
+	gf="git fetch" \
+	gpl="git pull" \
+	gps="git push" \
+	gr="git rebase" \
+	grc="git rebase --continue" \
+	gra="git rebase --abort" \
+	gri="git rebase --interactive" \
+	gcp="git cherry-pick" \
+	grs="git reset" \
+	grv="git revert" \
+	grt="git restore" \
+	grm="git rm" \
