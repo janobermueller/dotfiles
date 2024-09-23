@@ -1,16 +1,37 @@
 #!/bin/zsh
 
-# Load prompt
+# Load more configs
 source "$XDG_CONFIG_HOME/zsh/promptrc"
 source "$XDG_CONFIG_HOME/zsh/aliasrc"
 
 # Enable colors
-autoload -Uz colors && colors
+#autoload -Uz colors && colors
 
-setopt AUTO_CD			# Automatically cd into typed directory
-setopt HIST_IGNORE_ALL_DUPS	# Show history entries only once
-setopt HIST_REDUCE_BLANKS	# Remove superfluous blanks from each command added to history
-stty stop undef			# Disable ctrl-s to freeze terminal
+setopt AUTO_CD
+stty stop undef	# Disable ctrl-s to freeze terminal
+
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_dups
+setopt hist_ignore_all_dups
+setopt hist_find_no_dups
+setopt hist_save_no_dups
+setopt hist_reduce_blanks
+
+bindkey "^p" history-search-backward
+bindkey "^[[A" history-search-backward
+bindkey "^n" history-search-forward
+bindkey "^[[B" history-search-forward
+
+# Completion
+autoload -Uz compinit && compinit
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu select
+#zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+#zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Basic auto/tab complete
 autoload -Uz compinit
@@ -66,30 +87,28 @@ bindkey -s "^a" "bc -l\n"
 bindkey -s "^f" 'cd "$(dirname "$(fzf)")"\n'
 bindkey "^[[P" delete-char
 
-# Edit line in vim with ctrl-e
+## Edit line in vim with ctrl-e
 autoload edit-command-line; zle -N edit-command-line
 bindkey "^e" edit-command-line
 
 # history-search-end
-autoload -Uz history-search-end
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
-bindkey "^[[A" history-beginning-search-backward-end
-bindkey "^[[B" history-beginning-search-forward-end
-bindkey -M vicmd "^[[A" history-beginning-search-backward-end
-bindkey -M vicmd "^[[B" history-beginning-search-forward-end
-bindkey -M vicmd "k" history-beginning-search-backward-end
-bindkey -M vicmd "j" history-beginning-search-forward-end
-
-source /usr/share/nvm/init-nvm.sh
+#autoload -Uz history-search-end
+#zle -N history-beginning-search-backward-end history-search-end
+#zle -N history-beginning-search-forward-end history-search-end
+#bindkey "^[[A" history-beginning-search-backward-end
+#bindkey "^[[B" history-beginning-search-forward-end
+#bindkey -M vicmd "^[[A" history-beginning-search-backward-end
+#bindkey -M vicmd "^[[B" history-beginning-search-forward-end
+#bindkey -M vicmd "k" history-beginning-search-backward-end
+#bindkey -M vicmd "j" history-beginning-search-forward-end
 
 # Load and configure plugins
 # zsh-abbrev-alias
 source "$ZPLUGINS/zsh-abbrev-alias/abbrev-alias.plugin.zsh"
 source "$ZDOTDIR/abbrevrc"
 # history-search-multi-word
-source "$ZPLUGINS/history-search-multi-word/history-search-multi-word.plugin.zsh"
-zstyle ":plugin:history-search-multi-word" active "bg=magenta"
+#source "$ZPLUGINS/history-search-multi-word/history-search-multi-word.plugin.zsh"
+#zstyle ":plugin:history-search-multi-word" active "bg=magenta"
 # zsh-autosuggestions
 source "$ZPLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh"
 # fast-syntax-highlighting

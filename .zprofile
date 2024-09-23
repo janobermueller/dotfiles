@@ -4,7 +4,6 @@
 
 # General
 export DEFAULT_USER="jan"
-#export WAYLAND_DISPLAY=wayland
 
 # Adds scripts folder to $PATH
 export SCRIPTS="$HOME/scripts"
@@ -85,15 +84,6 @@ export BEMENU_OPTS="
 	--af '#ebdbb2'
 "
 
-# Configure nnn
-export NNN_PLUG='d:diffs;e:gpge;g:gpgd;i:imgthumb;j:autojump;n:bulknew;p:preview-tabbed;q:preview-tui;v:imgview'
-export NNN_BMS='h:~;r:~/repositories;s:~/scripts;c:~/.config;l:~.local'
-export NNN_COLORS="3621"			# Use a different color for each context
-export NNN_FCOLORS='030304020000060101050505'	# Set file-type specific colors
-export NNN_SSHFS="sshfs -o follow_symlinks"	# Make sshfs follow symlinks on the remote
-export NNN_OPTS="e"				# Open text files using $VISUAL/$EDITOR
-export NNN_FIFO='/tmp/nnn.fifo'			# Required for preview-tui/preview-tabbed
-
 startw() {
 	ssh-agent dwl -s "
 		swaybg -i ~/.config/wallpaper.jpg &
@@ -104,3 +94,7 @@ startw() {
 
 # Start graphical server on tty1 if not already running.
 [ "$(tty)" = "/dev/tty1" ] && [ ! $XDG_SESSION_TYPE = "wayland" ] && startw || echo > /dev/null
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
