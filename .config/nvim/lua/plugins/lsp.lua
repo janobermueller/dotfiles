@@ -37,7 +37,8 @@ return {
 					},
 				},
 				tailwindcss = {},
-				tsserver = {},
+				templ = {},
+				ts_ls = {},
 				volar = {},
 				vuels = {},
 			}

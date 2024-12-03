@@ -7,6 +7,7 @@ local keymaps = {
 	{ "n", "<C-l>",            "<C-w>l" },
 
 	{ "n", "<leader><leader>", ":bNext<CR>" },
+	{ "n", "<Esc>", "<cmd>nohlsearch<CR>" },
 
 	{ "n", "<C-d>",            "<C-d>zz" },
 	{ "n", "<C-u>",            "<C-u>zz" },

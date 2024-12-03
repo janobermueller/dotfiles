@@ -16,6 +16,8 @@
 !.config/swaylock/*
 !.config/zsh/
 !.config/zsh/*
+.config/zsh/.zcompdump
+.config/zsh/.zsh_history
 !.config/user-dirs.dirs
 !.config/user-dirs.locale
 

@@ -7,7 +7,7 @@ export DEFAULT_USER="jan"
 
 # Adds scripts folder to $PATH
 export SCRIPTS="$HOME/scripts"
-export PATH="$PATH:$(du "$SCRIPTS" | cut -f2 | paste -sd ':')"
+export PATH="$PATH:$(du "$SCRIPTS" | cut -f2 | paste -sd ':'):/usr/local/go/bin/"
 
 # Default programs
 export BROWSER="firefox"
@@ -59,6 +59,10 @@ export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
 export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # Configure bemenu
 export BEMENU_OPTS="
 	--ignorecase \
@@ -94,7 +98,3 @@ startw() {
 
 # Start graphical server on tty1 if not already running.
 [ "$(tty)" = "/dev/tty1" ] && [ ! $XDG_SESSION_TYPE = "wayland" ] && startw || echo > /dev/null
-
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
